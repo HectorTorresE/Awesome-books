@@ -1,15 +1,15 @@
-# Hello-Microverse
+# Awsome Books
 This project based on the linter configuration. setup project built with html and css
 
+![image](https://user-images.githubusercontent.com/31547587/152880325-62c21129-5527-467a-a8c9-a8e5140e701f.png)
 
-![](https://img.shields.io/badge/Microverse-blueviolet)
+![image](https://user-images.githubusercontent.com/31547587/152880389-4fc37d8d-4e3c-408c-8599-d5c596ddd3f3.png)
 
-![image](https://user-images.githubusercontent.com/31547587/148134761-02a9ce94-c889-41e0-9166-9f8b893ac8fe.png)
 
 
 ## Built With
 
-- HTML and CSS
+- HTML, CSS, and JavaScript
 
 
 
@@ -37,12 +37,16 @@ To get a local copy up and running follow these simple example steps.
 
 ## Authors
 
-👤 **Author1**
+👤 **Hector Torres**
 
 - GitHub: [@githubhandle](https://github.com/HectorTorresE)
 - Twitter: [@twitterhandle](https://twitter.com/HectorT00406915)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
+👤 **Karam Fouad**
+
+- GitHub: [@githubhandle](https://github.com/Karam084)
+- 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
