@@ -5,84 +5,179 @@ class Book {
   }
 }
 
-let BookList = [];
+class BookList {
+  constructor() {
+    this.Books = [];
+  }
+  
+  AddBook(Title,Author) {
+    if (Title !== '' && Author !== '') {
+      this.Books.push(new Book(Title, Author));
+    }
+  }
 
+  RemoveBook(index) {
+    if (index > -1) {
+      this.Books.splice(index, 1);
+    }
+  }
+
+}
+
+const bList = new BookList();
 const bookTitle = document.getElementById('bookTilte');
 const bookAuthor = document.getElementById('bookAuthor');
 const btnAdd = document.getElementById('Add');
 
-function AddBook() {
+function Add() {
   if (bookTitle.value !== '' && bookAuthor.value !== '') {
-    BookList.push(new Book(bookTitle.value, bookAuthor.value));
-    localStorage.setItem('BookList', JSON.stringify(BookList));
+    bList.AddBook(bookTitle.value, bookAuthor.value);
+    localStorage.setItem('BookList', JSON.stringify(bList.Books));
     window.location.reload();
   }
 }
 
-function RemoveBook() {
-  const index = this.id;
-  if (index > -1) {
-    BookList.splice(index, 1);
-    localStorage.setItem('BookList', JSON.stringify(BookList));
+function Remove() {
+  if (this.id > -1) {
+    bList.RemoveBook(this.id);
+    localStorage.setItem('BookList', JSON.stringify(bList.Books));
     window.location.reload();
   }
 }
 
 function displayBooks() {
-  if (BookList.length >= 1) {
-    BookList.map((el, i) => {
+  if (bList.Books.length >= 1) {
+    bList.Books.map((el, i) => {
       const BookSec = document.getElementById('bookSec');
-      const section = document.createElement('section');
+      if (i === 0) {
+        const row = document.createElement('div');
+        row.classList.add('row');
+        row.classList.add('borderT');
+        const col = document.createElement('div');
+        col.classList.add('col-6');
+        col.classList.add('text-left');
+        const h5 = document.createElement('h5');
+        h5.classList.add('m-2');
+        h5.textContent = `"${el.Title}" by ${el.Author}`;
+        col.appendChild(h5);
+        const col2 = document.createElement('div');
+        col2.classList.add('col-6');
+        col2.classList.add('text-end');
+        const input = document.createElement('input');
+        input.classList.add('m-2');
+        input.type = 'submit';
+        input.value = 'Remove';
+        input.id = i;
+        input.addEventListener('click', Remove);
+        col2.appendChild(input);
+        row.appendChild(col);
+        row.appendChild(col2);
+        BookSec.appendChild(row);
 
-      const rowTitle = document.createElement('div');
-      rowTitle.classList.add('row');
-      rowTitle.classList.add('m-2');
-
-      const colTitle = document.createElement('div');
-      colTitle.classList.add('col-4');
-      colTitle.classList.add('m-2');
-
-      const labelTitle = document.createElement('label');
-      labelTitle.classList.add('titleBook');
-      labelTitle.textContent = el.Title;
-
-      colTitle.appendChild(labelTitle);
-      rowTitle.appendChild(colTitle);
-      section.appendChild(rowTitle);
-
-      const rowAuthor = document.createElement('div');
-      rowAuthor.classList.add('row');
-      rowAuthor.classList.add('m-2');
-
-      const colAuthor = document.createElement('div');
-      colAuthor.classList.add('col-4');
-      colAuthor.classList.add('m-2');
-
-      const labelAuthor = document.createElement('label');
-      labelAuthor.classList.add('titleBook');
-      labelAuthor.textContent = el.Author;
-
-      colAuthor.appendChild(labelAuthor);
-      rowAuthor.appendChild(colAuthor);
-      section.appendChild(rowAuthor);
-
-      const rowbtn = document.createElement('div');
-      rowbtn.classList.add('row');
-      rowbtn.classList.add('m-2');
-
-      const colbtn = document.createElement('div');
-      colbtn.classList.add('col-4');
-
-      const removeBtn = document.createElement('input');
-      removeBtn.type = 'submit';
-      removeBtn.id = i.toString();
-      removeBtn.value = 'Remove';
-      removeBtn.addEventListener('click', RemoveBook);
-
-      colbtn.appendChild(removeBtn);
-      rowbtn.appendChild(colbtn);
-      section.appendChild(rowbtn);
-      BookSec.appendChild(section);
+        return null;
+      }
+      if (i === (bList.Books.length - 1) && i % 2 !== 0) {
+        const row = document.createElement('div');
+        row.classList.add('row');
+        row.classList.add('borderBW');
+        const col = document.createElement('div');
+        col.classList.add('col-6');
+        col.classList.add('text-left');
+        const h5 = document.createElement('h5');
+        h5.classList.add('m-2');
+        h5.textContent = `"${el.Title}" by ${el.Author}`;
+        col.appendChild(h5);
+        const col2 = document.createElement('div');
+        col2.classList.add('col-6');
+        col2.classList.add('text-end');
+        const input = document.createElement('input');
+        input.classList.add('m-2');
+        input.type = 'submit';
+        input.value = 'Remove';
+        input.id = i;
+        input.addEventListener('click', Remove);
+        col2.appendChild(input);
+        row.appendChild(col);
+        row.appendChild(col2);
+        BookSec.appendChild(row);
+        return null;
+      }
+      if (i === (bList.Books.length - 1) && i % 2 === 0) {
+        const row = document.createElement('div');
+        row.classList.add('row');
+        row.classList.add('borderB');
+        const col = document.createElement('div');
+        col.classList.add('col-6');
+        col.classList.add('text-left');
+        const h5 = document.createElement('h5');
+        h5.classList.add('m-2');
+        h5.textContent = `"${el.Title}" by ${el.Author}`;
+        col.appendChild(h5);
+        const col2 = document.createElement('div');
+        col2.classList.add('col-6');
+        col2.classList.add('text-end');
+        const input = document.createElement('input');
+        input.classList.add('m-2');
+        input.value = 'Remove';
+        input.type = 'submit';
+        input.id = i;
+        input.addEventListener('click', Remove);
+        col2.appendChild(input);
+        row.appendChild(col);
+        row.appendChild(col2);
+        BookSec.appendChild(row);
+        return null;
+      }
+      if (i % 2 !== 0) {
+        const row = document.createElement('div');
+        row.classList.add('row');
+        row.classList.add('borderMW');
+        const col = document.createElement('div');
+        col.classList.add('col-6');
+        col.classList.add('text-left');
+        const h5 = document.createElement('h5');
+        h5.classList.add('m-2');
+        h5.textContent = `"${el.Title}" by ${el.Author}`;
+        col.appendChild(h5);
+        const col2 = document.createElement('div');
+        col2.classList.add('col-6');
+        col2.classList.add('text-end');
+        const input = document.createElement('input');
+        input.classList.add('m-2');
+        input.type = 'submit';
+        input.value = 'Remove';
+        input.id = i;
+        input.addEventListener('click', Remove);
+        col2.appendChild(input);
+        row.appendChild(col);
+        row.appendChild(col2);
+        BookSec.appendChild(row);
+      } else {
+        const row = document.createElement('div');
+        row.classList.add('row');
+        row.classList.add('borderM');
+        const col = document.createElement('div');
+        col.classList.add('col-6');
+        col.classList.add('text-left');
+        const h5 = document.createElement('h5');
+        h5.classList.add('m-2');
+        h5.textContent = `"${el.Title}" by ${el.Author}`;
+        col.appendChild(h5);
+        const col2 = document.createElement('div');
+        col2.classList.add('col-6');
+        col2.classList.add('text-end');
+        const input = document.createElement('input');
+        input.classList.add('m-2');
+        input.value = 'Remove';
+        input.type = 'submit';
+        input.id = i;
+        input.addEventListener('click', Remove);
+        col2.appendChild(input);
+        row.appendChild(col);
+        row.appendChild(col2);
+        BookSec.appendChild(row);
+        return null;
+      }
 
       return null;
     });
@@ -90,9 +185,9 @@ function displayBooks() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  btnAdd.addEventListener('click', AddBook);
+  btnAdd.addEventListener('click', Add);
   if (localStorage.getItem('BookList') !== null) {
-    BookList = JSON.parse(localStorage.getItem('BookList'));
+    bList.Books = JSON.parse(localStorage.getItem('BookList'));
     displayBooks();
   }
 });
