@@ -1,16 +1,9 @@
-class Book {
-  constructor(Title, Author) {
-    this.Title = Title;
-    this.Author = Author;
-  }
-}
-
 class BookList {
   constructor() {
     this.Books = [];
   }
-  
-  AddBook(Title,Author) {
+
+  AddBook(Title, Author) {
     if (Title !== '' && Author !== '') {
       this.Books.push(new Book(Title, Author));
     }
@@ -21,7 +14,6 @@ class BookList {
       this.Books.splice(index, 1);
     }
   }
-
 }
 
 const bList = new BookList();
