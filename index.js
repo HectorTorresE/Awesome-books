@@ -82,9 +82,6 @@ function displayBooks() {
       colbtn.appendChild(removeBtn);
       rowbtn.appendChild(colbtn);
       section.appendChild(rowbtn);
-
-      const hr = document.createElement('hr');
-      section.appendChild(hr);
       BookSec.appendChild(section);
 
       return null;
