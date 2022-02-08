@@ -1,11 +1,7 @@
 # Awsome Books
 This project based on the linter configuration. setup project built with html and css
 
-![image](https://user-images.githubusercontent.com/31547587/152880325-62c21129-5527-467a-a8c9-a8e5140e701f.png)
-
-![image](https://user-images.githubusercontent.com/31547587/152880389-4fc37d8d-4e3c-408c-8599-d5c596ddd3f3.png)
-
-
+![image](https://user-images.githubusercontent.com/31547587/153085428-e5240a86-f0f9-41ec-aa9c-c43d721415ce.png)
 
 ## Built With
 
