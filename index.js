@@ -1,4 +1,4 @@
-class book {
+class Book {
   constructor(Title, Author) {
     this.Title = Title;
     this.Author = Author;
@@ -12,18 +12,25 @@ const bookAuthor = document.getElementById('bookAuthor');
 const btnAdd = document.getElementById('Add');
 
 function AddBook() {
-  if (bookTitle.value != '' && bookAuthor.value != '') {
-    BookList.push(new book(bookTitle.value, bookAuthor.value));
+  if (bookTitle.value !== '' && bookAuthor.value !== '') {
+    BookList.push(new Book(bookTitle.value, bookAuthor.value));
+    localStorage.setItem('BookList', JSON.stringify(BookList));
+    window.location.reload();
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  btnAdd.addEventListener('click', AddBook);
-});
+function RemoveBook() {
+  const index = this.id;
+  if (index > -1) {
+    BookList.splice(index, 1);
+    localStorage.setItem('BookList', JSON.stringify(BookList));
+    window.location.reload();
+  }
+}
 
 function displayBooks() {
   if (BookList.length >= 1) {
-    BookList.map((el) => {
+    BookList.map((el, i) => {
       const BookSec = document.getElementById('bookSec');
       const section = document.createElement('section');
 
@@ -68,8 +75,9 @@ function displayBooks() {
 
       const removeBtn = document.createElement('input');
       removeBtn.type = 'submit';
-      removeBtn.id = 'Remove';
+      removeBtn.id = i.toString();
       removeBtn.value = 'Remove';
+      removeBtn.addEventListener('click', RemoveBook);
 
       colbtn.appendChild(removeBtn);
       rowbtn.appendChild(colbtn);
@@ -84,45 +92,10 @@ function displayBooks() {
   }
 }
 
-/* Storage local for data */
-var datas = ['1', '2', '3'];
-localStorage['datas'] = JSON.stringify(datas);
-
-// Retrieve
-var stored_datas = JSON.parse(localStorage['datas']);
-const formModel = {
-  name: 'Karam',
-  email: '',
-};
-const keymData = localStorage.getItem('formDataInput');
-if (keymData) {
-  const formDataInput = JSON.parse(keymData);
-  nameInput.value = formDataInput.name;
-  emailInput.value = formDataInput.email;
-  messageInput.value = formDataInput.msg;
-} else {
-  localStorage.setItem('formDataInput', JSON.stringify(formModel));
-}
-
-const dataStorage = (key, value) => {
-  const formDataInput = JSON.parse(localStorage.getItem('formDataInput'));
-  formDataInput[`${key}`] = value;
-  localStorage.setItem('formDataInput', JSON.stringify(formDataInput));
-};
-
-form.addEventListener('input', (e) => {
-  dataStorage(e.target.id, e.target.value);
-  switch (e.target.id) {
-    case 'name':
-      validInput();
-      break;
-    case 'email':
-      validInput();
-      break;
-    case 'msg':
-      validInput();
-      break;
-    default:
-      validInput();
+document.addEventListener('DOMContentLoaded', () => {
+  btnAdd.addEventListener('click', AddBook);
+  if (localStorage.getItem('BookList') !== null) {
+    BookList = JSON.parse(localStorage.getItem('BookList'));
+    displayBooks();
   }
 });

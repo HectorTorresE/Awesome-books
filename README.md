@@ -46,7 +46,7 @@ To get a local copy up and running follow these simple example steps.
 👤 **Karam Fouad**
 
 - GitHub: [@githubhandle](https://github.com/Karam084)
-- 
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
