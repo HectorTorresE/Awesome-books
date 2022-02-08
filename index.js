@@ -1,4 +1,4 @@
-class book {
+class Book {
   constructor(Title, Author) {
     this.Title = Title;
     this.Author = Author;
@@ -13,18 +13,18 @@ const btnAdd = document.getElementById('Add');
 
 function AddBook() {
   if (bookTitle.value !== '' && bookAuthor.value !== '') {
-    BookList.push(new book(bookTitle.value, bookAuthor.value));
+    BookList.push(new Book(bookTitle.value, bookAuthor.value));
     localStorage.setItem('BookList', JSON.stringify(BookList));
-    location.reload();
+    window.location.reload();
   }
 }
 
 function RemoveBook() {
-  const index = this.id;;
+  const index = this.id;
   if (index > -1) {
     BookList.splice(index, 1);
     localStorage.setItem('BookList', JSON.stringify(BookList));
-    location.reload();
+    window.location.reload();
   }
 }
 
@@ -78,7 +78,6 @@ function displayBooks() {
       removeBtn.id = i.toString();
       removeBtn.value = 'Remove';
       removeBtn.addEventListener('click', RemoveBook);
-
 
       colbtn.appendChild(removeBtn);
       rowbtn.appendChild(colbtn);
