@@ -2,3 +2,30 @@
   color: black;
   font-weight: bold;
 }
+
+.title {
+  border-radius: 1px solid black;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 50%;
+}
+
+.add {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-left: 200px;
+  margin-top: 17px;
+}
+
+.newbook {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 17px;
+  margin-left: 35px;
+}
