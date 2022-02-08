@@ -5,7 +5,11 @@ class BookList {
 
   AddBook(Title, Author) {
     if (Title !== '' && Author !== '') {
-      this.Books.push(new Book(Title, Author));
+      const Book  = {
+        Title: Title,
+        Author: Author
+      };
+      this.Books.push(Book);
     }
   }
 
