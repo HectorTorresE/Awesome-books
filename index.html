@@ -12,25 +12,54 @@
 <body>
   <main>
     <div class="container-fluid">
-      <div class="row text-left m-2">
-        <h1>Awsome books</h1>
+      <div class="row  text-center">
+        <h1>All awsome books</h1>
       </div>
-      <hr>
-      <section id="bookSec">
+      <section id="bookSec" class="w-25 mx-auto">
+        <div class="row borderT">
+          <div class="col-6 text-left">
+            <h5 class=" m-2">Book 1 by manuel</h5>
+          </div>
+          <div class="col-6 text-end">
+            <input type="submit" id="Add" value="Remove" class="m-2">
+          </div>
+        </div>
+        <div class="row borderMW">
+          <div class="col-6 text-left">
+            <h5 class=" m-2">Book 1 by manuel</h5>
+          </div>
+          <div class="col-6 text-end">
+            <input type="submit" id="Add" value="Remove" class="m-2">
+          </div>
+        </div>
+        <div class="row borderB">
+          <div class="col-6 text-left">
+            <h5 class=" m-2">Book 1 by manuel</h5>
+          </div>
+          <div class="col-6 text-end">
+            <input type="submit" id="Add" value="Remove" class="m-2">
+          </div>
+        </div>
       </section>
-      <section id="addBook">
+      <div class="row w-25 mx-auto">
+        <hr class="mt-4 w-100">
+      </div>
+      <section id="addBook" class="w-25 text-center mx-auto">
+        <h2 class="m-2">Add a new book</h2>
         <div class="row m-2">
-          <div class="col-4">
+          <div class="col-12">
             <input type="text" id="bookTilte" name="Title" required minlength="3" placeholder="Title" >
           </div>
         </div>
         <div class="row m-2">
-          <div class="col-4">
+          <div class="col-12">
             <input type="text" id="bookAuthor" name="Author" required minlength="3" placeholder="Author" >
           </div>
         </div>
         <div class="row m-2">
-          <div class="col-4">
+          <div class="col-7">
+          </div>
+          <div class="col-2">
             <input type="submit" id="Add" value="Add"  >
           </div>
         </div>
