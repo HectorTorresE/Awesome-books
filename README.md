@@ -21,17 +21,15 @@ This project based on the linter configuration. setup project built with html an
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
 ### Setup
 
-### Install
+To have a local copy of this project, follow theese simple steps:
 
-### Usage
+1. Open the terminal comand line window
+2. `git clone https://github.com/Kakalanp/Portfolio-Joaquin.git`
+3. Open the index.html file with any browser
+4. Have fun!
 
-### Run tests
-
-### Deployment
 
 
 
