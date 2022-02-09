@@ -17,17 +17,15 @@ This project based on the linter configuration. setup project built with html an
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
 ### Setup
 
-### Install
+To have a local copy of this project, follow theese simple steps:
 
-### Usage
+Open the terminal comand line window
+`https://github.com/HectorTorresE/Awesome-books.git`
+Open the index.html file with any browser
+Have fun!
 
-### Run tests
-
-### Deployment
 
 
 
