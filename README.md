@@ -25,10 +25,10 @@ To get a local copy up and running follow these simple example steps.
 
 To have a local copy of this project, follow theese simple steps:
 
-1. Open the terminal comand line window
-2. `git clone https://github.com/Kakalanp/Portfolio-Joaquin.git`
-3. Open the index.html file with any browser
-4. Have fun!
+Open the terminal comand line window
+`https://github.com/HectorTorresE/Awesome-books.git`
+Open the index.html file with any browser
+Have fun!
 
 
 
