@@ -39,3 +39,25 @@
   border-left: 1px solid black;
   border-bottom: 1px solid black;
 }
+
+.borderNav {
+  border: 2px solid black;
+}
+
+.visible {
+  display: block;
+}
+
+.Invisible {
+  display: none;
+}
+
+.contactUl {
+  margin-left: 800px;
+  margin-right: auto;
+}
+
+
+.colBlue {
+ color: blue;
+}
