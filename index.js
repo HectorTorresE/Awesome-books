@@ -24,6 +24,63 @@ const bList = new BookList();
 const bookTitle = document.getElementById('bookTilte');
 const bookAuthor = document.getElementById('bookAuthor');
 const btnAdd = document.getElementById('Add');
+const showList = document.getElementById('showList');
+const showBook = document.getElementById('bookList');
+const addBook = document.getElementById('addBook');
+const contact = document.getElementById('contact');
+const showAdd = document.getElementById('showAdd');
+const showCon = document.getElementById('showCon');
+
+function showBooks() {
+  showBook.classList.remove('Invisible');
+  showBook.classList.add('visible');
+  showList.classList.add('colBlue');
+
+  if (addBook.classList.contains('visible')) {
+    addBook.classList.remove('visible');
+    addBook.classList.add('Invisible');
+    showAdd.classList.remove('colBlue');
+  }
+  if (contact.classList.contains('visible')) {
+    contact.classList.remove('visible');
+    contact.classList.add('Invisible');
+    showAdd.classList.remove('colBlue');
+  }
+}
+
+function AddShow() {
+  addBook.classList.remove('Invisible');
+  addBook.classList.add('visible');
+  showAdd.classList.add('colBlue');
+
+  if (showBook.classList.contains('visible')) {
+    showBook.classList.remove('visible');
+    showBook.classList.add('Invisible');
+    showList.classList.remove('colBlue');
+  }
+  if (contact.classList.contains('visible')) {
+    contact.classList.remove('visible');
+    contact.classList.add('Invisible');
+    showCon.classList.remove('colBlue');
+  }
+}
+
+function showContact() {
+  contact.classList.remove('Invisible');
+  contact.classList.add('visible');
+  showCon.classList.add('colBlue');
+
+  if (showBook.classList.contains('visible')) {
+    showBook.classList.remove('visible');
+    showBook.classList.add('Invisible');
+    showList.classList.remove('colBlue');
+  }
+  if (addBook.classList.contains('visible')) {
+    addBook.classList.remove('visible');
+    addBook.classList.add('Invisible');
+    showAdd.classList.remove('colBlue');
+  }
+}
 
 function Add() {
   if (bookTitle.value !== '' && bookAuthor.value !== '') {
@@ -54,7 +111,7 @@ function displayBooks() {
         col.classList.add('text-left');
         const h5 = document.createElement('h5');
         h5.classList.add('m-2');
-        h5.textContent = `"${el.Title}" by ${el.Author}`;
+        h5.textContent = `'${el.Title}' by ${el.Author}`;
         col.appendChild(h5);
         const col2 = document.createElement('div');
         col2.classList.add('col-6');
@@ -72,7 +129,7 @@ function displayBooks() {
 
         return null;
       }
-      if (i === (bList.Books.length - 1) && i % 2 !== 0) {
+      if (i === bList.Books.length - 1 && i % 2 !== 0) {
         const row = document.createElement('div');
         row.classList.add('row');
         row.classList.add('borderBW');
@@ -81,7 +138,7 @@ function displayBooks() {
         col.classList.add('text-left');
         const h5 = document.createElement('h5');
         h5.classList.add('m-2');
-        h5.textContent = `"${el.Title}" by ${el.Author}`;
+        h5.textContent = `'${el.Title}' by ${el.Author}`;
         col.appendChild(h5);
         const col2 = document.createElement('div');
         col2.classList.add('col-6');
@@ -98,7 +155,7 @@ function displayBooks() {
         BookSec.appendChild(row);
         return null;
       }
-      if (i === (bList.Books.length - 1) && i % 2 === 0) {
+      if (i === bList.Books.length - 1 && i % 2 === 0) {
         const row = document.createElement('div');
         row.classList.add('row');
         row.classList.add('borderB');
@@ -107,7 +164,7 @@ function displayBooks() {
         col.classList.add('text-left');
         const h5 = document.createElement('h5');
         h5.classList.add('m-2');
-        h5.textContent = `"${el.Title}" by ${el.Author}`;
+        h5.textContent = `'${el.Title}' by ${el.Author}`;
         col.appendChild(h5);
         const col2 = document.createElement('div');
         col2.classList.add('col-6');
@@ -133,7 +190,7 @@ function displayBooks() {
         col.classList.add('text-left');
         const h5 = document.createElement('h5');
         h5.classList.add('m-2');
-        h5.textContent = `"${el.Title}" by ${el.Author}`;
+        h5.textContent = `'${el.Title}' by ${el.Author}`;
         col.appendChild(h5);
         const col2 = document.createElement('div');
         col2.classList.add('col-6');
@@ -157,7 +214,7 @@ function displayBooks() {
         col.classList.add('text-left');
         const h5 = document.createElement('h5');
         h5.classList.add('m-2');
-        h5.textContent = `"${el.Title}" by ${el.Author}`;
+        h5.textContent = `'${el.Title}' by ${el.Author}`;
         col.appendChild(h5);
         const col2 = document.createElement('div');
         col2.classList.add('col-6');
@@ -181,6 +238,9 @@ function displayBooks() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  showList.addEventListener('click', showBooks);
+  showCon.addEventListener('click', showContact);
+  showAdd.addEventListener('click', AddShow);
   btnAdd.addEventListener('click', Add);
   if (localStorage.getItem('BookList') !== null) {
     bList.Books = JSON.parse(localStorage.getItem('BookList'));
